@@ -61,9 +61,9 @@ public class AlfaController {
 
         GiphyDto image = giphyService.getGif(API_KEY, tag);
         String originalImageId = image.getData().get("id").toString();
-        //todo комментарий
+
+        // In the free account on Giphy the gif download is blocked, so I use this manually gathered URL
         String imageUrl = imageHost + originalImageId + imageFormat;
-        System.out.println(imageUrl);
 
         byte[] imageBytes = fileDownloadService.download(imageUrl);
 
